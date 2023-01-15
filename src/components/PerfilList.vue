@@ -1,46 +1,46 @@
 <template lang="pug">
-  v-app
-    v-card
-      v-subheader Elegiveis
-      v-list-item( v-for="perfil in elegit" :key="perfil.id" )
-        v-list-item-avatar
-          v-img(:src="perfil.avatar")
-        v-list-item-content
-          v-list-item-title {{ perfil.name }}
-        v-btn(
-          @click="removeFromElegit(perfil.id)"
-          class="mx-1"
-          fab
-          dark
-          small
-          depressed
-          color="pink lighten-3"
-          )
-          v-icon(dark) mdi-minus
-      v-list-item(d-flex class="flex-row-reverse")
-        v-btn(
-          class="mx-1"
-          dark
-          small
-          depressed
-          title
-          color="pink lighten-1") Apply
-      v-subheader Não Elegiveis
-      v-list-item( v-for="perfil in notElegit" :key="perfil.id" )
-        v-list-item-avatar
-          v-img(:src="perfil.avatar")
-        v-list-item-content
-          v-list-item-title {{ perfil.name }}
-        v-btn(
-          @click="removeFromNotElegit(perfil.id)"
-          class="mx-1"
-          fab
-          dark
-          small
-          depressed
-          color="pink lighten-2"
-          )
-          v-icon(dark) mdi-plus
+v-app
+  v-card
+    v-subheader Elegiveis
+    v-list-item( v-for="perfil in elegit" :key="perfil.id" )
+      v-list-item-avatar
+        v-img(:src="perfil.avatar")
+      v-list-item-content
+        v-list-item-title {{ perfil.name }}
+      v-btn(
+        @click="removeFromElegit(perfil.id)"
+        class="mx-1"
+        fab
+        dark
+        small
+        depressed
+        color="pink lighten-3"
+        )
+        v-icon(dark) mdi-minus
+    v-list-item(d-flex class="flex-row-reverse")
+      v-btn(
+        class="mx-1"
+        dark
+        small
+        depressed
+        title
+        color="pink lighten-1") Apply
+    v-subheader Não Elegiveis
+    v-list-item( v-for="perfil in notElegit" :key="perfil.id" )
+      v-list-item-avatar
+        v-img(:src="perfil.avatar")
+      v-list-item-content
+        v-list-item-title {{ perfil.name }}
+      v-btn(
+        @click="removeFromNotElegit(perfil.id)"
+        class="mx-1"
+        fab
+        dark
+        small
+        depressed
+        color="pink lighten-2"
+        )
+        v-icon(dark) mdi-plus
 
 </template>
 <script>
