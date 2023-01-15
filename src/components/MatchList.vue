@@ -14,17 +14,16 @@ v-app
 </template>
 <script>
 export default {
-  props: {
-    value: {
-      type: Array,
-      default: () => [],
+  props: ['value'],
+  data() {
+    return {
+      matches: this.value
     }
   },
-  data: () => ({
-    matches: []
-  }),
-  mounted() {
-    this.matches = this.value
+  watch: {
+    value() {
+      this.matches = this.value
+    }
   }
 }
 </script>

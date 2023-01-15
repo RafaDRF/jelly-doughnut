@@ -19,6 +19,7 @@ v-app
         v-icon(dark) mdi-minus
     v-list-item(d-flex class="flex-row-reverse")
       v-btn(
+        @click="applyClicked()"
         class="mx-1"
         dark
         small
@@ -55,10 +56,12 @@ export default {
       default: () => [],
     }
   },
-  data: () => ({
-    elegit: [],
-    notElegit: [],
-  }),
+  data() {
+    return {
+      elegit: [],
+      notElegit: [],
+    }
+  },
   mounted(){
     this.elegit = this.initialEligit;
     this.notElegit = this.initialNotEligit;
@@ -75,6 +78,30 @@ export default {
 
       this.notElegit = this.notElegit.filter(e => e != element)
       this.elegit.push(element)
+    },
+    applyClicked() {
+      if (this.elegit.length % 2 == 0) {
+        this.$emit('pairs', this.makeRandomPairs())
+      }
+    },
+    makeRandomPairs() {
+      let pair = []
+      let element = undefined
+      let elements = this.elegit
+      let allPairs = []
+
+      while(elements.length){
+        pair = []
+
+        for(let i=0;i<2;i++){
+          element = elements[Math.floor(Math.random()*elements.length)];
+          pair.push(element)
+
+          elements = elements.filter(e => e != element)
+        }
+        allPairs.push(pair)
+      }
+      return allPairs
     }
   }
 }
