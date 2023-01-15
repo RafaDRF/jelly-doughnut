@@ -45,32 +45,24 @@ v-app
 </template>
 <script>
 export default {
+  props: {
+    initialEligit: {
+      type: Array,
+      default: () => [],
+    },
+    initialNotEligit: {
+      type: Array,
+      default: () => [],
+    }
+  },
   data: () => ({
-    elegit: [
-      {
-        id: 1,
-        name: 'Mike Carlson',
-        avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg'
-      },
-      {
-        id: 2,
-        name: 'Cindy Baker',
-        avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg'
-      },
-      {
-        id: 3,
-        name: 'Ali Connors',
-        avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg'
-      },
-    ],
-    notElegit: [
-      {
-        id: 4,
-        name: 'Joerge Carldone',
-        avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg'
-      }
-    ]
+    elegit: [],
+    notElegit: [],
   }),
+  mounted(){
+    this.elegit = this.initialEligit;
+    this.notElegit = this.initialNotEligit;
+  },
   methods: {
     removeFromElegit(perfilId) {
       const element = this.elegit.find(element => element.id == perfilId)
