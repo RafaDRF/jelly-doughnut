@@ -14,31 +14,17 @@ v-app
 </template>
 <script>
 export default {
+  props: {
+    value: {
+      type: Array,
+      default: () => [],
+    }
+  },
   data: () => ({
-    matches: [
-      {
-        id: 1,
-        first: {
-          name: 'Mike Carlson',
-          avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg'
-        },
-        second: {
-          name: 'Cindy Baker',
-          avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg'
-        }
-      },
-      {
-        id: 2,
-        first: {
-          name: 'Ali Connors',
-          avatar: 'https://cdn.vuetifyjs.com/images/lists/4.jpg'
-        },
-        second: {
-          name: 'Joerge Carldone',
-          avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg'
-        }
-      }
-    ]
-  })
+    matches: []
+  }),
+  mounted() {
+    this.matches = this.value
+  }
 }
 </script>
